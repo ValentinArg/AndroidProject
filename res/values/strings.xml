@@ -4,10 +4,9 @@
     <string name="app_name">ProjetS4</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-
-    <string name="title_activity_plat">PlatActivity</string>
-	<string name="boutonConseille">Conseiller</string>
-	<string name="boutonValiderMenu">Valider</string>
+    <string name="title_activity_plat">PlatActivity</string> 
+    <string name="boutonConseille">Conseiller</string> 
+    <string name="boutonValiderMenu">Valider</string>
     <string name="btnValider">Valider</string>
     <!--  MainActivity -->
     <string name="txtTaille">Rentrez votre taille (en cm)</string>
