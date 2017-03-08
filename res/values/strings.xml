@@ -8,7 +8,7 @@
     <string name="title_activity_plat">PlatActivity</string> 
     <string name="boutonConseille">Conseiller</string> 
     <string name="boutonValiderMenu">Valider</string>
-    
+    <string name="btnValider">Valider</string>
     <!--  MainActivity -->
     <string name="txtTaille">Rentrez votre taille (en cm)</string>
     <string name="txtPoids">Rentrez votre taille (en kg)</string>
