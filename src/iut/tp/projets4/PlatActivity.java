@@ -4,13 +4,25 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+
 
 public class PlatActivity extends Activity {
+	
+	private int TAILLE_MAX;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_plat);
+		
+		String[] tabEntree = new String[TAILLE_MAX];
+		tabEntree[0] = "Fromage";
+		tabEntree[1] = "Salade";
+        Spinner spinnerEntree = (Spinner) findViewById(R.id.spinnerEntree);
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, tabEntree);
+        spinnerEntree.setAdapter(adapter);
 	}
 
 	@Override
