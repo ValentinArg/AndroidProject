@@ -57,12 +57,30 @@
             android:text="@string/rdgHomme" />
     </RadioGroup>
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/editText2"
+        android:layout_alignLeft="@+id/editText2"
+        android:layout_marginBottom="33dp"
+        android:text="@string/txtPoids" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/editText1"
+        android:layout_alignLeft="@+id/editText1"
+        android:layout_marginBottom="34dp"
+        android:text="@string/txtTaille" />
+
     <RadioGroup
         android:id="@+id/radioGroup2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/radioGroup1"
         android:layout_below="@+id/radioGroup1"
-        android:layout_centerHorizontal="true"
         android:orientation="horizontal" >
 
         <RadioButton
@@ -83,27 +101,16 @@
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/radioGroup2"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="66dp"
         android:text="@string/btnValider" />
 
-    <TextView
-        android:id="@+id/textView2"
+    <Spinner
+        android:id="@+id/spinner1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/editText2"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_marginBottom="33dp"
-        android:text="@string/txtPoids" />
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/editText1"
-        android:layout_alignLeft="@+id/editText1"
-        android:layout_marginBottom="34dp"
-        android:text="@string/txtTaille" />
+        android:layout_below="@+id/button1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="66dp" />
 
 </RelativeLayout>
