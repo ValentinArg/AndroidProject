@@ -17,15 +17,6 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
-        TextView tv = (TextView) findViewById(R.id.textView1);
-        PlatsDbHelper bdd = new PlatsDbHelper(this);
-        SQLiteDatabase db = bdd.getReadableDatabase();
-        Cursor c = db.rawQuery("SELECT COUNT(*) FROM Plats WHERE nom=?", new String[]{"Tagliatelles"});
-        while(c.moveToNext()){
-        	tv.setText(""+c.getInt(0));
-        }	
-        c.close();
     }
 
     @Override
@@ -47,14 +38,4 @@ public class MainActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
     
-    public void clicBtn(View v){
-    	PlatsDbHelper bdd = new PlatsDbHelper(this);
-    	SQLiteDatabase db = bdd.getWritableDatabase(); 
-    	ContentValues values = new ContentValues();
-    	values.put("id", 2);
-    	values.put("nom", "Tagliatelles");
-    	values.put("calories", 500);
-    	db.insert("Plats", null, values);
-    	db.close();
-    }
 }
