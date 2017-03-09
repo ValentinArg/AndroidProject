@@ -3,12 +3,10 @@
 
     <string name="app_name">ProjetS4</string>
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_plat">PlatActivity</string>
-    <string name="boutonConseille">Conseiller</string>
-    <string name="boutonValiderMenu">Valider</string>
-    <string name="btnValider">Valider</string>
+    <string name="action_settings">Settings</string>
     <string name="action_apropos">A propos</string>
     <string name="action_suivi">Suivi</string>
+    
     <!-- MainActivity -->
     <string name="txtTaille">Rentrez votre taille (en cm)</string>
     <string name="txtPoids">Rentrez votre poids (en kg)</string>
@@ -16,7 +14,28 @@
     <string name="rdgFemme">Femme</string>
     <string name="rdgEnfant">Enfant</string>
     <string name="rdgAdulte">Adulte</string>
-    <string name="title_activity_proposition">PropositionActivity</string>
-    <string name="action_settings">Settings</string>
+    <string name="btnValider">Valider</string>
+    
+    <!-- PlatActivity -->
+    <string name="title_activity_plat">PlatActivity</string>
+ 	<string name="boutonConseille">Conseiller</string>
+    <string name="boutonValiderMenu">Valider</string>   
 
+    <!-- PropositionActivity -->
+	<string name="title_activity_proposition">PropositionActivity</string>
+    <string name="txtProposition">Voici ce que nous vous conseillons</string>
+    <string name="btnAccepter">Accepter</string>
+    <string name="btnRefuser">Refuser</string>
+    <string name="bCal">Calories avant</string>
+    <string name="aCal">Calories après</string>
+
+    <!-- RepasActivity -->
+    <string name="title_activity_repas">RepasActivity</string>
+    <string name="txtRepas">Votre repas :</string>
+    <string name="btnEnregistrer">Enregistrer</string>
+    <string name="btnPhoto">Photo</string>
+    
+    <!-- SuiviActivity -->
+	<string name="title_activity_suivi">SuiviActivity</string>
+		
 </resources>
