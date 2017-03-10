@@ -90,7 +90,8 @@
             android:layout_alignRight="@+id/spinner4"
             android:layout_below="@+id/spinner4"
             android:layout_marginRight="100dp"
-            android:text="@string/btnRefuser" />
+            android:text="@string/btnRefuser" 
+            android:onClick="@string/clicRefuser"/>
 
         <Button
             android:id="@+id/button1"
@@ -99,7 +100,8 @@
             android:layout_below="@+id/spinner4"
             android:layout_marginLeft="20dp"
             android:layout_toRightOf="@+id/textView2"
-            android:text="@string/btnAccepter" />
+            android:text="@string/btnAccepter" 
+            android:onClick="@string/clicAccepter"/>
 
     </RelativeLayout>
 

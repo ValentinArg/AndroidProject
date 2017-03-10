@@ -2,6 +2,8 @@ package iut.tp.projets4;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -30,12 +32,15 @@ public class PropositionActivity extends Activity {
 		int id = item.getItemId();
 		if (id == R.id.action_apropos) {
 			return true;
-		}
+		}else if (id == R.id.action_suivi){
+        	Intent intent = new Intent(PropositionActivity.this, SuiviActivity.class);
+        	startActivity(intent);
+        }
 		return super.onOptionsItemSelected(item);
 	}
 	
 	public void clicAccepter(View v){
-		Intent intent = new Intent(PropositionActivity.this, PlatActivity.class);
+		Intent intent = new Intent(PropositionActivity.this, RepasActivity.class);
 		startActivity(intent);
 	}
 	

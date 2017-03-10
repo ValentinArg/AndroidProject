@@ -42,7 +42,10 @@ public class PlatActivity extends Activity {
 		int id = item.getItemId();
 		if (id == R.id.action_apropos) {
 			return true;
-		}
+		}else if (id == R.id.action_suivi){
+        	Intent intent = new Intent(PlatActivity.this, SuiviActivity.class);
+        	startActivity(intent);
+        }
 		return super.onOptionsItemSelected(item);
 	}
 	

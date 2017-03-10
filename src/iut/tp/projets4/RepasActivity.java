@@ -1,6 +1,7 @@
 package iut.tp.projets4;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -26,9 +27,12 @@ public class RepasActivity extends Activity {
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
-		if (id == R.id.action_settings) {
+		if (id == R.id.action_apropos) {
 			return true;
-		}
+		}else if (id == R.id.action_suivi){
+        	Intent intent = new Intent(RepasActivity.this, SuiviActivity.class);
+        	startActivity(intent);
+        }
 		return super.onOptionsItemSelected(item);
 	}
 }
