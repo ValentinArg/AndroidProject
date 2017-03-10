@@ -9,8 +9,8 @@ public class PlatsDbHelper extends SQLiteOpenHelper{
 		public static final int DATABASE_VERSION = 1;
 		public static final String DATABASE_NAME="plats.db";
 		
-		public final String SQL_CREATE = "CREATE TABLE Plats(id INTEGER PRIMARY KEY, nom TEXT, calories INTEGER);"
-				+ " INSERT INTO Plats VALUES(1,'Tagliatelles',300);";
+		public final String SQL_CREATE = "CREATE TABLE Plats(id INTEGER PRIMARY KEY, nom TEXT, calories INTEGER, type TEXT);"
+				+ " INSERT INTO Plats VALUES(1,'Tagliatelles',300, 'Plat');";
 		public final String SQL_DELETE = "DROP TABLE IF EXISTS Plats;";
 		
 		public PlatsDbHelper(Context context){
