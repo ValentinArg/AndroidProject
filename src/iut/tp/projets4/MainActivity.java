@@ -2,6 +2,7 @@ package iut.tp.projets4;
 
 import android.app.Activity;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -36,6 +37,11 @@ public class MainActivity extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+    
+    public void clicValider(View v){
+    	Intent intent = new Intent(MainActivity.this, PlatActivity.class);
+    	startActivity(intent);
     }
     
 }

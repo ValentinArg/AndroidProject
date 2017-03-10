@@ -1,9 +1,11 @@
 package iut.tp.projets4;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class PropositionActivity extends Activity {
 
@@ -30,5 +32,15 @@ public class PropositionActivity extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	public void clicAccepter(View v){
+		Intent intent = new Intent(PropositionActivity.this, PlatActivity.class);
+		startActivity(intent);
+	}
+	
+	public void clicRefuser(View v){
+		Intent intent = new Intent(PropositionActivity.this, PlatActivity.class);
+		startActivity(intent);
 	}
 }

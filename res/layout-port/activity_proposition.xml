@@ -84,7 +84,8 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView1"
         android:layout_below="@+id/spinner4"
-        android:text="@string/btnAccepter" />
+        android:text="@string/btnAccepter" 
+        android:onClick="@string/clicAccepter"/>
 
     <Button
         android:id="@+id/button2"
@@ -92,6 +93,7 @@
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/textView1"
         android:layout_below="@+id/spinner4"
-        android:text="@string/btnRefuser" />
+        android:text="@string/btnRefuser" 
+        android:onClick="@string/clicRefuser"/>
 
 </RelativeLayout>

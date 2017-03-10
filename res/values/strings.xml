@@ -15,11 +15,13 @@
     <string name="rdgEnfant">Enfant</string>
     <string name="rdgAdulte">Adulte</string>
     <string name="btnValider">Valider</string>
+    <string name="clicValider">clicValider</string>
     
     <!-- PlatActivity -->
     <string name="title_activity_plat">PlatActivity</string>
  	<string name="boutonConseille">Conseiller</string>
-    <string name="boutonValiderMenu">Valider</string>   
+    <string name="boutonValiderMenu">Valider</string>
+    <string name="clicConseiller">clicConseiller</string>   
 
     <!-- PropositionActivity -->
 	<string name="title_activity_proposition">PropositionActivity</string>
@@ -28,6 +30,8 @@
     <string name="btnRefuser">Refuser</string>
     <string name="bCal">Calories avant</string>
     <string name="aCal">Calories après</string>
+    <string name="clicAccepter">clicAccepter</string>
+    <string name="clicRefuser">clicRefuser</string>
 
     <!-- RepasActivity -->
     <string name="title_activity_repas">RepasActivity</string>

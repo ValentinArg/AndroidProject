@@ -71,19 +71,23 @@ public final class R {
         public static final int suivi=0x7f070003;
     }
     public static final class string {
-        public static final int aCal=0x7f050014;
+        public static final int aCal=0x7f050016;
         public static final int action_apropos=0x7f050003;
         public static final int action_settings=0x7f050002;
         public static final int action_suivi=0x7f050004;
         public static final int app_name=0x7f050000;
-        public static final int bCal=0x7f050013;
-        public static final int boutonConseille=0x7f05000d;
-        public static final int boutonValiderMenu=0x7f05000e;
-        public static final int btnAccepter=0x7f050011;
-        public static final int btnEnregistrer=0x7f050017;
-        public static final int btnPhoto=0x7f050018;
-        public static final int btnRefuser=0x7f050012;
+        public static final int bCal=0x7f050015;
+        public static final int boutonConseille=0x7f05000e;
+        public static final int boutonValiderMenu=0x7f05000f;
+        public static final int btnAccepter=0x7f050013;
+        public static final int btnEnregistrer=0x7f05001b;
+        public static final int btnPhoto=0x7f05001c;
+        public static final int btnRefuser=0x7f050014;
         public static final int btnValider=0x7f05000b;
+        public static final int clicAccepter=0x7f050017;
+        public static final int clicConseiller=0x7f050010;
+        public static final int clicRefuser=0x7f050018;
+        public static final int clicValider=0x7f05000c;
         public static final int hello_world=0x7f050001;
         public static final int rdgAdulte=0x7f05000a;
         public static final int rdgEnfant=0x7f050009;
@@ -91,19 +95,19 @@ public final class R {
         public static final int rdgHomme=0x7f050007;
         /**  PlatActivity 
          */
-        public static final int title_activity_plat=0x7f05000c;
+        public static final int title_activity_plat=0x7f05000d;
         /**  PropositionActivity 
          */
-        public static final int title_activity_proposition=0x7f05000f;
+        public static final int title_activity_proposition=0x7f050011;
         /**  RepasActivity 
          */
-        public static final int title_activity_repas=0x7f050015;
+        public static final int title_activity_repas=0x7f050019;
         /**  SuiviActivity 
          */
-        public static final int title_activity_suivi=0x7f050019;
+        public static final int title_activity_suivi=0x7f05001d;
         public static final int txtPoids=0x7f050006;
-        public static final int txtProposition=0x7f050010;
-        public static final int txtRepas=0x7f050016;
+        public static final int txtProposition=0x7f050012;
+        public static final int txtRepas=0x7f05001a;
         /**  MainActivity 
          */
         public static final int txtTaille=0x7f050005;

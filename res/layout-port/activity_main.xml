@@ -103,6 +103,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/radioGroup2"
         android:layout_centerHorizontal="true"
-        android:text="@string/btnValider"/>
+        android:text="@string/btnValider"
+        android:onClick="@string/clicValider"/>
 
 </RelativeLayout>
