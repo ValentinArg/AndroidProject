@@ -2,6 +2,8 @@ package iut.tp.projets4;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,13 +20,20 @@ public class PlatActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_plat);
+		PlatsDbHelper bdd = new PlatsDbHelper(this);
+		SQLiteDatabase db = bdd.getWritableDatabase();
+		Cursor curs = db.rawQuery("select nom from Plat where type='Entree'", null);
 		
-		/*String[] tabEntree = new String[TAILLE_MAX];
-		tabEntree[0] = "Fromage";
-		tabEntree[1] = "Salade";
+		int i = 0;
+		String[] tabEntree= new String[TAILLE_MAX];
+		while(curs.moveToNext()){
+			tabEntree[i] = curs.toString();
+			i++;
+		}
         Spinner spinnerEntree = (Spinner) findViewById(R.id.spinnerEntree);
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, tabEntree);
-        spinnerEntree.setAdapter(adapter);*/
+        spinnerEntree.setAdapter(adapter);
+
 	}
 
 	@Override
