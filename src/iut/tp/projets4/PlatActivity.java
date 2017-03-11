@@ -14,24 +14,24 @@ import android.widget.Spinner;
 
 public class PlatActivity extends Activity {
 	
-	private int TAILLE_MAX;
+	private int TAILLE_MAX = 100;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_plat);
 		PlatsDbHelper bdd = new PlatsDbHelper(this);
-		SQLiteDatabase db = bdd.getWritableDatabase();
-		Cursor curs = db.rawQuery("select nom from Plat where type='Entree'", null);
+		SQLiteDatabase db = bdd.getReadableDatabase();
+		Cursor curs = db.rawQuery("select nom from Plats where calories >= 100", null);
 		
 		int i = 0;
 		String[] tabEntree= new String[TAILLE_MAX];
 		while(curs.moveToNext()){
-			tabEntree[i] = curs.toString();
+			tabEntree[i] = curs.getString(0);
 			i++;
 		}
         Spinner spinnerEntree = (Spinner) findViewById(R.id.spinnerEntree);
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, tabEntree);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, tabEntree);
         spinnerEntree.setAdapter(adapter);
 
 	}
