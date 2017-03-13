@@ -86,6 +86,7 @@ public final class R {
         public static final int btnValider=0x7f05000b;
         public static final int clicAccepter=0x7f050017;
         public static final int clicConseiller=0x7f050010;
+        public static final int clicEnregistrer=0x7f05001d;
         public static final int clicRefuser=0x7f050018;
         public static final int clicValider=0x7f05000c;
         public static final int hello_world=0x7f050001;
@@ -104,7 +105,7 @@ public final class R {
         public static final int title_activity_repas=0x7f050019;
         /**  SuiviActivity 
          */
-        public static final int title_activity_suivi=0x7f05001d;
+        public static final int title_activity_suivi=0x7f05001e;
         public static final int txtPoids=0x7f050006;
         public static final int txtProposition=0x7f050012;
         public static final int txtRepas=0x7f05001a;

@@ -38,6 +38,7 @@
     <string name="txtRepas">Votre repas :</string>
     <string name="btnEnregistrer">Enregistrer</string>
     <string name="btnPhoto">Photo</string>
+    <string name="clicEnregistrer">clicEnregistrer</string>
     
     <!-- SuiviActivity -->
 	<string name="title_activity_suivi">SuiviActivity</string>

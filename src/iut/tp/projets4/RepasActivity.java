@@ -1,10 +1,15 @@
 package iut.tp.projets4;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import android.app.Activity;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class RepasActivity extends Activity {
 
@@ -34,5 +39,16 @@ public class RepasActivity extends Activity {
         	startActivity(intent);
         }
 		return super.onOptionsItemSelected(item);
+	}
+	
+	public void clicEnregistrer (View v){
+		Calendar c = Calendar.getInstance();
+		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+		String formattedDate = df.format(c.getTime());
+		
+		PlatsDbHelper bdd = new PlatsDbHelper(this);
+		SQLiteDatabase db = bdd.getWritableDatabase();
+		
+		db.execSQL("");//récupérer les plats enregistrés, la somme des calories, la date système
 	}
 }

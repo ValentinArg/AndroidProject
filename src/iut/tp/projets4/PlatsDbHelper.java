@@ -20,7 +20,8 @@ public class PlatsDbHelper extends SQLiteOpenHelper{
 		
 		//Méthode appelée la première fois par l'application, quand aucune bd n'est présente
 		public void onCreate(SQLiteDatabase db){
-			db.execSQL(SQL_CREATE);
+			db.execSQL("CREATE TABLE Plats(id INTEGER PRIMARY KEY, nom TEXT, calories INTEGER, portion INTEGER, type TEXT);");
+			db.execSQL("CREATE TABLE Repas(id INTEGER PRIMARY KEY AUTOINCREMENT, plats TEXT, calories INTEGER, date TEXT);");
 			db.execSQL("INSERT INTO Plats VALUES(1,'Tagliatelles', 215 ,115, 'Plat');");
 			db.execSQL("INSERT INTO Plats VALUES(2,'Blanquette de veau', 548, 400 , 'Plat');");
 			db.execSQL("INSERT INTO Plats VALUES(3,'Kebab', 740, 360, 'Plat');" );

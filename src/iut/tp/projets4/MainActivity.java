@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 
@@ -18,7 +19,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        PlatsDbHelper bdd = new PlatsDbHelper(this);
+        
     }
 
     @Override
@@ -44,7 +45,13 @@ public class MainActivity extends Activity {
     }
     
     public void clicValider(View v){
+    	EditText et1 = (EditText) findViewById(R.id.editText1);
+    	String valeurTaille = et1.getText().toString();
+    	EditText et2 = (EditText) findViewById(R.id.editText2);
+    	String valeurPoids = et2.getText().toString();
     	Intent intent = new Intent(MainActivity.this, PlatActivity.class);
+    	intent.putExtra("taille", valeurTaille);
+    	intent.putExtra("poids", valeurPoids);
     	startActivity(intent);
     }
     
