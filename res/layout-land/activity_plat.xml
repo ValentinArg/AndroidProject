@@ -12,8 +12,8 @@
         android:id="@+id/spinnerPlat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/spinnerComplement"
-        android:layout_centerHorizontal="true" />
+        android:layout_above="@+id/boutonConseille"
+        android:layout_below="@+id/spinner" />
 
     <Button
         android:id="@+id/boutonConseille"
@@ -37,11 +37,11 @@
         android:onClick="@string/clicValider"/>
 
     <Spinner
-        android:id="@+id/spinnerDessert"
+        android:id="@+id/spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/spinnerPlat"
-        android:layout_below="@+id/spinnerPlat" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" />
 
     <Spinner
         android:id="@+id/spinnerEntree"
@@ -51,11 +51,10 @@
         android:layout_below="@+id/spinnerDessert" />
 
     <Spinner
-        android:id="@+id/spinnerComplement"
+        android:id="@+id/spinnerDessert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/spinnerPlat"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="45dp" />
+        android:layout_above="@+id/boutonValiderPlat"
+        android:layout_alignLeft="@+id/spinnerPlat" />
 
 </RelativeLayout>

@@ -36,6 +36,8 @@ public class PlatsDbHelper extends SQLiteOpenHelper{
 			db.execSQL("INSERT INTO Plats VALUES(12,'Glace au chocolat', 157 , 72, 'Dessert');" );
 			db.execSQL("INSERT INTO Plats VALUES(13,'Gauffre', 103 , 33, 'Dessert');" );
 			db.execSQL("INSERT INTO Plats VALUES(14,'Tarte au pomme', 290 , 150, 'Dessert');");
+			db.execSQL("INSERT INTO Plats VALUES(15,'Champignon de Paris', 50, 100, 'Complement');");
+			
 		}
 		
 		//Méthode appelée quand une bd est présente sur le tel pour ne pas en générer une neuve
