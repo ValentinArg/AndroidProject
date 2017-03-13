@@ -1,5 +1,8 @@
 package iut.tp.projets4;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
@@ -10,13 +13,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 
 public class PlatActivity extends Activity {
 	
-	private int TAILLE_MAX = 100;
+	private List<String> repastab;
+	private ArrayAdapter<String> adapter;
+	
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -26,32 +33,47 @@ public class PlatActivity extends Activity {
 		SQLiteDatabase db = bdd.getReadableDatabase();
 		Cursor curs = db.rawQuery("select nom from Plats where type = ?", new String[]{"Entree"});
 		
-		int i = 0;
-		//String[] tabEntree= new String[TAILLE_MAX];
-		curs.moveToFirst();
 		Toast.makeText(this, curs.getString(0), Toast.LENGTH_SHORT).show();
-		Spinner spinnerEntree = (Spinner) findViewById(R.id.spinnerEntree);
-		if(curs.getCount() >0){
-			while(curs.moveToNext()){
-			String[] from = new String[]{"nom"};
-			  // create an array of the display item we want to bind our data to
-			int[] to = new int[]{android.R.id.text1};
 	
-		SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, android.R.layout.simple_spinner_item, curs, from, to);
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		spinnerEntree.setAdapter(adapter);
+		
+		repastab = new ArrayList<String>();
+		
+		if(curs.moveToFirst()){
+			Spinner spinnerEntree =(Spinner) findViewById(R.id.spinnerEntree);
+			do{
+				repastab.add("--->" + curs.getString(1) +"<----");
+			}while(curs.moveToNext());
 		}
+		adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, repastab);
+		
+		Spinner spinnerEntree = (Spinner) findViewById(R.id.spinnerEntree);
+		spinnerEntree.setAdapter(adapter);
+		
+//		if(curs.getCount() > 0){
+//			while(curs.moveToNext()){
+//			String[] from = new String[]{"nom"};
+//			  // create an array of the display item we want to bind our data to
+//			int[] to = new int[]{android.R.id.text1};
+//	
+//		SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, android.R.layout.simple_spinner_item, curs, from, to, 0);
+//		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//		spinnerEntree.setAdapter(adapter);
+//		}
+//		}
+		
+//		while(curs.moveToNext()){
+//		tabEntree[i] = curs.getString(curs.getColumnIndexOrThrow("nom"));
+//		i++;
+//	}
+//    Spinner spinnerEntree = (Spinner) findViewById(R.id.spinnerEntree);
+//    ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, tabEntree);
+//    spinnerEntree.setAdapter(adapter);
+	
+
+		
+//			
 		}
 		
-			
-		}
-		/*while(curs.moveToNext()){
-			tabEntree[i] = curs.getString(curs.getColumnIndexOrThrow("nom"));
-			i++;
-		}
-        Spinner spinnerEntree = (Spinner) findViewById(R.id.spinnerEntree);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, tabEntree);
-        spinnerEntree.setAdapter(adapter);*/
 
 
 
