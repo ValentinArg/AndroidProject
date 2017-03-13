@@ -20,58 +20,28 @@ import android.widget.Toast;
 
 public class PlatActivity extends Activity {
 	
-	private List<String> repastab;
-	private ArrayAdapter<String> adapter;
-	
-	
+	List<String> entreestab;
+	ArrayAdapter<String> adapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_plat);
+		
 		PlatsDbHelper bdd = new PlatsDbHelper(this);
 		SQLiteDatabase db = bdd.getReadableDatabase();
-		Cursor curs = db.rawQuery("select nom from Plats where type = ?", new String[]{"Entree"});
 		
-		Toast.makeText(this, curs.getString(0), Toast.LENGTH_SHORT).show();
-	
-		
-		repastab = new ArrayList<String>();
-		
-		if(curs.moveToFirst()){
-			Spinner spinnerEntree =(Spinner) findViewById(R.id.spinnerEntree);
+		Cursor c = db.rawQuery("SELECT nom FROM Plats WHERE type='Entree' ORDER BY nom ASC", null);
+		entreestab = new ArrayList<String>();
+		if(c.moveToFirst()){
 			do{
-				repastab.add("--->" + curs.getString(1) +"<----");
-			}while(curs.moveToNext());
+				entreestab.add(c.getString(0));
+			}while(c.moveToNext());
 		}
-		adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, repastab);
+		adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, entreestab);
 		
-		Spinner spinnerEntree = (Spinner) findViewById(R.id.spinnerEntree);
-		spinnerEntree.setAdapter(adapter);
-		
-//		if(curs.getCount() > 0){
-//			while(curs.moveToNext()){
-//			String[] from = new String[]{"nom"};
-//			  // create an array of the display item we want to bind our data to
-//			int[] to = new int[]{android.R.id.text1};
-//	
-//		SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, android.R.layout.simple_spinner_item, curs, from, to, 0);
-//		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//		spinnerEntree.setAdapter(adapter);
-//		}
-//		}
-		
-//		while(curs.moveToNext()){
-//		tabEntree[i] = curs.getString(curs.getColumnIndexOrThrow("nom"));
-//		i++;
-//	}
-//    Spinner spinnerEntree = (Spinner) findViewById(R.id.spinnerEntree);
-//    ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, tabEntree);
-//    spinnerEntree.setAdapter(adapter);
-	
-
-		
-//			
+		Spinner spinner = (Spinner) findViewById(R.id.spinnerEntree);
+		spinner.setAdapter(adapter);
 		}
 		
 
