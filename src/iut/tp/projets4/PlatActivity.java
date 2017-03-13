@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.v4.widget.SimpleCursorAdapter;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,9 +27,24 @@ public class PlatActivity extends Activity {
 		Cursor curs = db.rawQuery("select nom from Plats where type = ?", new String[]{"Entree"});
 		
 		int i = 0;
-		String[] tabEntree= new String[TAILLE_MAX];
+		//String[] tabEntree= new String[TAILLE_MAX];
 		curs.moveToFirst();
 		Toast.makeText(this, curs.getString(0), Toast.LENGTH_SHORT).show();
+		Spinner spinnerEntree = (Spinner) findViewById(R.id.spinnerEntree);
+		if(curs.getCount() >0){
+			while(curs.moveToNext()){
+			String[] from = new String[]{"nom"};
+			  // create an array of the display item we want to bind our data to
+			int[] to = new int[]{android.R.id.text1};
+	
+		SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, android.R.layout.simple_spinner_item, curs, from, to);
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		spinnerEntree.setAdapter(adapter);
+		}
+		}
+		
+			
+		}
 		/*while(curs.moveToNext()){
 			tabEntree[i] = curs.getString(curs.getColumnIndexOrThrow("nom"));
 			i++;
@@ -37,7 +53,7 @@ public class PlatActivity extends Activity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, tabEntree);
         spinnerEntree.setAdapter(adapter);*/
 
-	}
+
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
