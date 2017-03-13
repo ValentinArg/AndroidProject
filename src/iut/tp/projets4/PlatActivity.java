@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 
 public class PlatActivity extends Activity {
@@ -22,17 +23,19 @@ public class PlatActivity extends Activity {
 		setContentView(R.layout.activity_plat);
 		PlatsDbHelper bdd = new PlatsDbHelper(this);
 		SQLiteDatabase db = bdd.getReadableDatabase();
-		Cursor curs = db.rawQuery("select nom from Plats where calories >= 100", null);
+		Cursor curs = db.rawQuery("select nom from Plats where type = ?", new String[]{"Entree"});
 		
 		int i = 0;
 		String[] tabEntree= new String[TAILLE_MAX];
-		while(curs.moveToNext()){
-			tabEntree[i] = curs.getString(0);
+		curs.moveToFirst();
+		Toast.makeText(this, curs.getString(0), Toast.LENGTH_SHORT).show();
+		/*while(curs.moveToNext()){
+			tabEntree[i] = curs.getString(curs.getColumnIndexOrThrow("nom"));
 			i++;
 		}
         Spinner spinnerEntree = (Spinner) findViewById(R.id.spinnerEntree);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, tabEntree);
-        spinnerEntree.setAdapter(adapter);
+        spinnerEntree.setAdapter(adapter);*/
 
 	}
 
