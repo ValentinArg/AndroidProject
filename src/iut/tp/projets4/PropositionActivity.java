@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 public class PropositionActivity extends Activity {
 
@@ -15,6 +17,42 @@ public class PropositionActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_proposition);
+		
+		TextView entree = (TextView) findViewById(R.id.textView4);
+		String nomEntree = getIntent().getStringExtra("Entree");
+		entree.setText(nomEntree);
+		
+		TextView plat = (TextView) findViewById(R.id.textView5);
+		String nomPlat = getIntent().getStringExtra("Plat");
+		plat.setText(nomPlat);
+		
+		TextView complement = (TextView) findViewById(R.id.textView6);
+		String nomComplement = getIntent().getStringExtra("Complement");
+		complement.setText(nomComplement);
+		
+		TextView dessert = (TextView) findViewById(R.id.textView7);
+		String nomDessert = getIntent().getStringExtra("Dessert");
+		dessert.setText(nomDessert);
+		
+		PlatsDbHelper bdd = new PlatsDbHelper(this);
+		SQLiteDatabase db = bdd.getReadableDatabase();
+		Cursor cursKcalRepas = db.rawQuery("SELECT SUM(calories) FROM Plats WHERE nom='"+nomEntree+"'"
+																			+" OR nom='"+nomPlat+"'"
+																			+" OR nom='"+nomComplement+"'"
+																			+" OR nom='"+nomDessert+"';", null);
+		int sommeKcal = 0;
+		if(cursKcalRepas.moveToFirst()){
+			do{
+				sommeKcal = cursKcalRepas.getInt(0);
+			}while(cursKcalRepas.moveToNext());
+		}
+		
+		TextView somme = (TextView) findViewById(R.id.textView2);
+		somme.setText(""+sommeKcal);
+		
+		ProgressBar pb = (ProgressBar) findViewById(R.id.progressBar1);
+		pb.setMax(1820);
+		pb.setProgress(sommeKcal);
 	}
 
 	@Override

@@ -112,6 +112,23 @@ public class PlatActivity extends Activity {
 	
 	public void clicConseiller(View v){
 		Intent intent = new Intent(PlatActivity.this, PropositionActivity.class);
+		
+		Spinner spinnerEntree = (Spinner) findViewById(R.id.spinnerEntree);
+		String entree = spinnerEntree.getSelectedItem().toString();
+		intent.putExtra("Entree", entree);
+		
+		Spinner spinnerPlat = (Spinner) findViewById(R.id.spinnerPlat);
+		String plat = spinnerPlat.getSelectedItem().toString();
+		intent.putExtra("Plat", plat);
+		
+		Spinner spinnerComplement = (Spinner) findViewById(R.id.spinnerComplement);
+		String complement = spinnerComplement.getSelectedItem().toString();
+		intent.putExtra("Complement", complement);
+		
+		Spinner spinnerDessert = (Spinner) findViewById(R.id.spinnerDessert);
+		String dessert = spinnerDessert.getSelectedItem().toString();
+		intent.putExtra("Dessert", dessert);
+		
 		startActivity(intent);
 	}
 	
