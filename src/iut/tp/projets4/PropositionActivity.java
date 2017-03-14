@@ -12,34 +12,35 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class PropositionActivity extends Activity {
+	
+	private final int KCAL_HOMME=910;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_proposition);
 		
-		TextView entree = (TextView) findViewById(R.id.textView4);
-		String nomEntree = getIntent().getStringExtra("Entree");
-		entree.setText(nomEntree);
-		
-		TextView plat = (TextView) findViewById(R.id.textView5);
-		String nomPlat = getIntent().getStringExtra("Plat");
-		plat.setText(nomPlat);
-		
-		TextView complement = (TextView) findViewById(R.id.textView6);
-		String nomComplement = getIntent().getStringExtra("Complement");
-		complement.setText(nomComplement);
-		
-		TextView dessert = (TextView) findViewById(R.id.textView7);
-		String nomDessert = getIntent().getStringExtra("Dessert");
-		dessert.setText(nomDessert);
-		
 		PlatsDbHelper bdd = new PlatsDbHelper(this);
 		SQLiteDatabase db = bdd.getReadableDatabase();
-		Cursor cursKcalRepas = db.rawQuery("SELECT SUM(calories) FROM Plats WHERE nom='"+nomEntree+"'"
-																			+" OR nom='"+nomPlat+"'"
-																			+" OR nom='"+nomComplement+"'"
-																			+" OR nom='"+nomDessert+"';", null);
+		
+		String nomEntreeChoisie = getIntent().getStringExtra("Entree");
+		String nomPlatChoisi = getIntent().getStringExtra("Plat");
+		String nomComplementChoisi = getIntent().getStringExtra("Complement");
+		String nomDessertChoisi = getIntent().getStringExtra("Dessert");
+		
+		TextView tvEntree = (TextView) findViewById(R.id.textView4);
+		TextView tvPlat = (TextView) findViewById(R.id.textView5);
+		TextView tvComplement = (TextView) findViewById(R.id.textView6);
+		TextView tvDessert = (TextView) findViewById(R.id.textView7);
+	
+		tvPlat.setText(nomPlatChoisi);
+		tvComplement.setText(nomComplementChoisi);
+			
+		//récupération des sélections et calcul des calories AVANT proposition
+		Cursor cursKcalRepas = db.rawQuery("SELECT SUM(calories) FROM Plats WHERE nom='"+nomEntreeChoisie+"'"
+																			+" OR nom='"+nomPlatChoisi+"'"
+																			+" OR nom='"+nomComplementChoisi+"'"
+																			+" OR nom='"+nomDessertChoisi+"';", null);
 		int sommeKcal = 0;
 		if(cursKcalRepas.moveToFirst()){
 			do{
@@ -47,12 +48,58 @@ public class PropositionActivity extends Activity {
 			}while(cursKcalRepas.moveToNext());
 		}
 		
-		TextView somme = (TextView) findViewById(R.id.textView2);
-		somme.setText(""+sommeKcal);
+		TextView sommeAvant = (TextView) findViewById(R.id.textView3);
+		sommeAvant.setText("Calories avant "+sommeKcal);
 		
-		ProgressBar pb = (ProgressBar) findViewById(R.id.progressBar1);
+		ProgressBar pb = (ProgressBar) findViewById(R.id.progressBar2);
 		pb.setMax(1820);
 		pb.setProgress(sommeKcal);
+		//----------------------------
+		
+		//génération d'une proposition (on garde le plat et le complément)
+		
+		Cursor cursKcalPlatComplement = db.rawQuery("SELECT SUM(calories) FROM Plats WHERE nom='"+nomPlatChoisi+"'"
+																					+" OR nom='"+nomComplementChoisi+"';", null);
+		int sommeKcalPlatComplement = 0;
+		if(cursKcalPlatComplement.moveToFirst()){
+			do{
+				sommeKcalPlatComplement = cursKcalPlatComplement.getInt(0);
+			}while(cursKcalPlatComplement.moveToNext());
+		}
+		
+		//Entree ---------------------
+		Cursor cursSelectionEntree = db.rawQuery("SELECT nom, calories FROM Plats"
+												+" WHERE type='Entree'"
+												+" AND calories<=("+KCAL_HOMME+"-"+sommeKcalPlatComplement+")/2"
+														+ " ORDER BY calories DESC;" , null);
+		String nomEntreeSelection = "";
+		int caloriesEntreeSelection = 0;
+		if(cursSelectionEntree.moveToFirst()){
+			nomEntreeSelection = cursSelectionEntree.getString(0);
+			caloriesEntreeSelection = cursSelectionEntree.getInt(1);;
+		}
+		tvEntree.setText(nomEntreeSelection);
+		
+		//Dessert --------------------
+		Cursor cursSelectionDessert = db.rawQuery("SELECT nom, calories FROM Plats"
+										+" WHERE type='Dessert'"
+										+" AND calories<=("+KCAL_HOMME+"-"+sommeKcalPlatComplement+"-"+caloriesEntreeSelection+")"
+										+ " ORDER BY calories DESC;" , null);
+		String nomDessertSelection = "";
+		int caloriesDessertSelection = 0;
+		if(cursSelectionDessert.moveToFirst()){
+			nomDessertSelection = cursSelectionDessert.getString(0);
+			caloriesDessertSelection = cursSelectionDessert.getInt(1);;
+		}	
+		tvDessert.setText(nomDessertSelection);
+		
+		//Affichage calories APRES proposition
+		TextView sommeApres = (TextView) findViewById(R.id.textView2);
+		sommeApres.setText("Calories après "+(sommeKcalPlatComplement+caloriesEntreeSelection+caloriesDessertSelection));
+		
+		ProgressBar pb2 = (ProgressBar) findViewById(R.id.progressBar1);
+		pb2.setMax(1820);
+		pb2.setProgress(sommeKcalPlatComplement+caloriesEntreeSelection+caloriesDessertSelection);
 	}
 
 	@Override
