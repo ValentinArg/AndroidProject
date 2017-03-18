@@ -8,27 +8,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="iut.tp.projets4.PlatActivity" >
 
-    <Button
-        android:id="@+id/boutonConseille"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/boutonValiderPlat"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="16dp"
-        android:minHeight="60dp"
-        android:minWidth="121dp"
-        android:text="@string/boutonConseille" 
-        android:onClick="@string/clicConseiller"/>
-
-    <Button
-        android:id="@+id/boutonValiderPlat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:text="@string/boutonValiderMenu" 
-        android:onClick="@string/clicValider"/>
-
     <Spinner
         android:id="@+id/spinnerPlat"
         android:layout_width="wrap_content"
@@ -56,6 +35,43 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/spinnerPlat"
         android:layout_alignParentTop="true"
-       />
+        android:layout_marginTop="70dp" />
+
+    <Button
+        android:id="@+id/boutonConseille"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinnerDessert"
+        android:layout_centerHorizontal="true"
+        android:minHeight="60dp"
+        android:minWidth="121dp"
+        android:onClick="@string/clicConseiller"
+        android:text="@string/boutonConseille" />
+
+    <Button
+        android:id="@+id/boutonValiderPlat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="@string/clicValider"
+        android:text="@string/boutonValiderMenu" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/spinnerEntree"
+        android:layout_alignParentTop="true"
+        android:text="@string/txtIMC" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/spinnerEntree"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="18dp"
+        android:text="@string/txtCalCons" />
 
 </RelativeLayout>

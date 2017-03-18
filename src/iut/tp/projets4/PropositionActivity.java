@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 public class PropositionActivity extends Activity {
 	
-	private final int KCAL_HOMME=910;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +21,8 @@ public class PropositionActivity extends Activity {
 		
 		PlatsDbHelper bdd = new PlatsDbHelper(this);
 		SQLiteDatabase db = bdd.getReadableDatabase();
+		
+		int caloriesRecommandees = getIntent().getIntExtra("calories", 1000);
 		
 		String nomEntreeChoisie = getIntent().getStringExtra("Entree");
 		String nomPlatChoisi = getIntent().getStringExtra("Plat");
@@ -70,7 +71,7 @@ public class PropositionActivity extends Activity {
 		//Entree ---------------------
 		Cursor cursSelectionEntree = db.rawQuery("SELECT nom, calories FROM Plats"
 												+" WHERE type='Entree'"
-												+" AND calories<=("+KCAL_HOMME+"-"+sommeKcalPlatComplement+")/2"
+												+" AND calories<=("+caloriesRecommandees+"-"+sommeKcalPlatComplement+")/2"
 														+ " ORDER BY calories DESC;" , null);
 		String nomEntreeSelection = "";
 		int caloriesEntreeSelection = 0;
@@ -83,7 +84,7 @@ public class PropositionActivity extends Activity {
 		//Dessert --------------------
 		Cursor cursSelectionDessert = db.rawQuery("SELECT nom, calories FROM Plats"
 										+" WHERE type='Dessert'"
-										+" AND calories<=("+KCAL_HOMME+"-"+sommeKcalPlatComplement+"-"+caloriesEntreeSelection+")"
+										+" AND calories<=("+caloriesRecommandees+"-"+sommeKcalPlatComplement+"-"+caloriesEntreeSelection+")"
 										+ " ORDER BY calories DESC;" , null);
 		String nomDessertSelection = "";
 		int caloriesDessertSelection = 0;

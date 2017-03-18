@@ -21,7 +21,9 @@
     <string name="title_activity_plat">PlatActivity</string>
  	<string name="boutonConseille">Conseiller</string>
     <string name="boutonValiderMenu">Valider</string>
-    <string name="clicConseiller">clicConseiller</string>   
+    <string name="clicConseiller">clicConseiller</string>  
+    <string name="txtIMC">Votre IMC : </string>
+    <string name="txtCalCons">Calories conseillées : </string> 
 
     <!-- PropositionActivity -->
 	<string name="title_activity_proposition">PropositionActivity</string>

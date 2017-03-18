@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -22,11 +23,33 @@ public class PlatActivity extends Activity {
 	
 	List<String> entreestab, platstab, complementstab, dessertstab;
 	ArrayAdapter<String> adapter;
+	float caloriesRecommandees;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_plat);
+		
+		//calcul de l'IMC
+		TextView tvImc = (TextView) findViewById(R.id.textView1);
+		int poids = Integer.parseInt(getIntent().getStringExtra("poids"));
+		float taille = Integer.parseInt(getIntent().getStringExtra("taille"))/100;
+		tvImc.setText("Votre IMC = "+(poids/(Math.pow(taille, 2))));
+		
+		//calcul des calories recommandées
+		TextView tvCal = (TextView) findViewById(R.id.textView2);
+		String sexe = getIntent().getStringExtra("sexe");
+		String age = getIntent().getStringExtra("age");
+		if(age.equals(new String("adulte"))){
+			if(sexe.equals(new String("femme"))){
+				this.caloriesRecommandees = 805;
+			}else{
+				this.caloriesRecommandees = 910;
+			}
+		}else{
+			this.caloriesRecommandees = (50*poids)*0.35f;
+		}
+		tvCal.setText("Calories recommandées pour un repas = "+this.caloriesRecommandees);
 		
 		PlatsDbHelper bdd = new PlatsDbHelper(this);
 		SQLiteDatabase db = bdd.getReadableDatabase();
@@ -49,43 +72,43 @@ public class PlatActivity extends Activity {
 		Spinner spinnerEntrees = (Spinner) findViewById(R.id.spinnerEntree);
 		spinnerEntrees.setAdapter(adapter);
 		
-	//Affichage des plats de la bd dans le spinner	
-	platstab = new ArrayList<String>();
-	if(cursPlats.moveToFirst()){
-		do{
-			platstab.add(cursPlats.getString(0));
-		}while(cursPlats.moveToNext());
-	}
-	adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, platstab);
-	
-	Spinner spinnerPlats= (Spinner) findViewById(R.id.spinnerPlat);
-	spinnerPlats.setAdapter(adapter);
-	
-	//Affichage des complements de la bd dans le spinner	
-	complementstab = new ArrayList<String>();
-	complementstab.add("Aucun");
-	if(cursComplements.moveToFirst()){
-		do{
-			complementstab.add(cursComplements.getString(0));
-		}while(cursComplements.moveToNext());
-	}
-	adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, complementstab);
-	
-	Spinner spinnerComplements= (Spinner) findViewById(R.id.spinnerComplement);
-	spinnerComplements.setAdapter(adapter);
-	
-	
-	//Affichage des desserts de la bd dans le spinner	
-	dessertstab = new ArrayList<String>();
-	if(cursDesserts.moveToFirst()){
-		do{
-			dessertstab.add(cursDesserts.getString(0));
-		}while(cursDesserts.moveToNext());
-	}
-	adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, dessertstab);
-	
-	Spinner spinnerDesserts= (Spinner) findViewById(R.id.spinnerDessert);
-	spinnerDesserts.setAdapter(adapter);
+		//Affichage des plats de la bd dans le spinner	
+		platstab = new ArrayList<String>();
+		if(cursPlats.moveToFirst()){
+			do{
+				platstab.add(cursPlats.getString(0));
+			}while(cursPlats.moveToNext());
+		}
+		adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, platstab);
+		
+		Spinner spinnerPlats= (Spinner) findViewById(R.id.spinnerPlat);
+		spinnerPlats.setAdapter(adapter);
+		
+		//Affichage des complements de la bd dans le spinner	
+		complementstab = new ArrayList<String>();
+		complementstab.add("Aucun");
+		if(cursComplements.moveToFirst()){
+			do{
+				complementstab.add(cursComplements.getString(0));
+			}while(cursComplements.moveToNext());
+		}
+		adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, complementstab);
+		
+		Spinner spinnerComplements= (Spinner) findViewById(R.id.spinnerComplement);
+		spinnerComplements.setAdapter(adapter);
+		
+		
+		//Affichage des desserts de la bd dans le spinner	
+		dessertstab = new ArrayList<String>();
+		if(cursDesserts.moveToFirst()){
+			do{
+				dessertstab.add(cursDesserts.getString(0));
+			}while(cursDesserts.moveToNext());
+		}
+		adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, dessertstab);
+		
+		Spinner spinnerDesserts= (Spinner) findViewById(R.id.spinnerDessert);
+		spinnerDesserts.setAdapter(adapter);
 	}
 	
 
@@ -129,6 +152,8 @@ public class PlatActivity extends Activity {
 		Spinner spinnerDessert = (Spinner) findViewById(R.id.spinnerDessert);
 		String dessert = spinnerDessert.getSelectedItem().toString();
 		intent.putExtra("Dessert", dessert);
+		
+		intent.putExtra("calories", this.caloriesRecommandees);
 		
 		startActivity(intent);
 	}

@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 
@@ -45,6 +46,7 @@ public class MainActivity extends Activity {
     }
     
     public void clicValider(View v){
+    	//transmission taille et poids
     	EditText et1 = (EditText) findViewById(R.id.editText1);
     	String valeurTaille = et1.getText().toString();
     	EditText et2 = (EditText) findViewById(R.id.editText2);
@@ -52,6 +54,24 @@ public class MainActivity extends Activity {
     	Intent intent = new Intent(MainActivity.this, PlatActivity.class);
     	intent.putExtra("taille", valeurTaille);
     	intent.putExtra("poids", valeurPoids);
+    	
+    	//transmissions infos adulte/enfant, homme/femme
+    	RadioGroup rgSexe = (RadioGroup) findViewById(R.id.radioGroup1);
+    	String sexe = "";
+    	if(rgSexe.getCheckedRadioButtonId() == R.id.radio0){
+    		sexe = "femme";
+    	}else{
+    		sexe = "homme";
+    	}
+    	RadioGroup rgAge = (RadioGroup) findViewById(R.id.radioGroup2);
+    	String age = "";
+    	if(rgAge.getCheckedRadioButtonId() == R.id.radio2){
+    		age = "enfant";
+    	}else{
+    		age = "adulte";
+    	}
+    	intent.putExtra("sexe", sexe);
+    	intent.putExtra("age", age);
     	startActivity(intent);
     }
     
