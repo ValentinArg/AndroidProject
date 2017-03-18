@@ -13,7 +13,11 @@ import android.widget.TextView;
 
 public class PropositionActivity extends Activity {
 	
-
+	String entreeProposee;
+	String platPropose;
+	String complementPropose;
+	String dessertPropose;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -36,6 +40,8 @@ public class PropositionActivity extends Activity {
 	
 		tvPlat.setText(nomPlatChoisi);
 		tvComplement.setText(nomComplementChoisi);
+		this.platPropose = nomPlatChoisi;
+		this.complementPropose = nomComplementChoisi;
 			
 		//récupération des sélections et calcul des calories AVANT proposition
 		Cursor cursKcalRepas = db.rawQuery("SELECT SUM(calories) FROM Plats WHERE nom='"+nomEntreeChoisie+"'"
@@ -80,6 +86,7 @@ public class PropositionActivity extends Activity {
 			caloriesEntreeSelection = cursSelectionEntree.getInt(1);;
 		}
 		tvEntree.setText(nomEntreeSelection);
+		this.entreeProposee = nomEntreeSelection;
 		
 		//Dessert --------------------
 		Cursor cursSelectionDessert = db.rawQuery("SELECT nom, calories FROM Plats"
@@ -93,6 +100,7 @@ public class PropositionActivity extends Activity {
 			caloriesDessertSelection = cursSelectionDessert.getInt(1);;
 		}	
 		tvDessert.setText(nomDessertSelection);
+		this.dessertPropose = nomDessertSelection;
 		
 		//Affichage calories APRES proposition
 		TextView sommeApres = (TextView) findViewById(R.id.textView2);
@@ -132,6 +140,11 @@ public class PropositionActivity extends Activity {
 	
 	public void clicRefuser(View v){
 		Intent intent = new Intent(PropositionActivity.this, PlatActivity.class);
-		startActivity(intent);
+		intent.putExtra("entreeProposee", this.entreeProposee);
+		intent.putExtra("platPropose", this.platPropose);
+		intent.putExtra("complementPropose", this.complementPropose);
+		intent.putExtra("dessertPropose", this.dessertPropose);
+		setResult(1, intent);
+		finish();
 	}
 }
