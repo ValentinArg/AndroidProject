@@ -135,6 +135,10 @@ public class PropositionActivity extends Activity {
 	
 	public void clicAccepter(View v){
 		Intent intent = new Intent(PropositionActivity.this, RepasActivity.class);
+		intent.putExtra("Entree", this.entreeProposee);
+		intent.putExtra("Plat", this.platPropose);
+		intent.putExtra("Complement", this.complementPropose);
+		intent.putExtra("Dessert", this.dessertPropose);
 		startActivity(intent);
 	}
 	

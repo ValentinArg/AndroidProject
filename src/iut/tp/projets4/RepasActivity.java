@@ -10,13 +10,30 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 public class RepasActivity extends Activity {
 
+	String entree, plat, complement, dessert; 
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_repas);
+		
+		entree = getIntent().getStringExtra("Entree");
+		plat = getIntent().getStringExtra("Plat");
+		complement = getIntent().getStringExtra("Complement");
+		dessert = getIntent().getStringExtra("Dessert");
+		
+		TextView tvEntree = (TextView) findViewById(R.id.textView2);
+		tvEntree.setText("Entrée : "+entree);
+		TextView tvPlat = (TextView) findViewById(R.id.textView3);
+		tvPlat.setText("Plat : "+plat);
+		TextView tvComplement = (TextView) findViewById(R.id.textView4);
+		tvComplement.setText("Complement : "+complement);
+		TextView tvDessert = (TextView) findViewById(R.id.textView5);
+		tvDessert.setText("Dessert : "+dessert);
 	}
 
 	@Override
@@ -49,6 +66,7 @@ public class RepasActivity extends Activity {
 		PlatsDbHelper bdd = new PlatsDbHelper(this);
 		SQLiteDatabase db = bdd.getWritableDatabase();
 		
-		db.execSQL("");//récupérer les plats enregistrés, la somme des calories, la date système
+		//récupérer les plats enregistrés, la somme des calories, la date système
+		db.execSQL("INSERT INTO Repas(plats, calories, date) VALUES('"+entree+" "+plat+" "+complement+" "+dessert+"', 666, '"+formattedDate+"');");
 	}
 }
