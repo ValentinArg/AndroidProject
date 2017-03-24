@@ -50,11 +50,15 @@ public class RepasActivity extends Activity {
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_apropos) {
-			return true;
+			Intent intent = new Intent(RepasActivity.this, AproposActivity.class);
+        	startActivity(intent);
 		}else if (id == R.id.action_suivi){
         	Intent intent = new Intent(RepasActivity.this, SuiviActivity.class);
         	startActivity(intent);
-        }
+        }else if (id == R.id.action_accueil) {
+			Intent intent = new Intent(RepasActivity.this, MainActivity.class);
+			startActivity(intent);
+		}
 		return super.onOptionsItemSelected(item);
 	}
 	

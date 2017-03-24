@@ -6,7 +6,7 @@
     <string name="action_settings">Settings</string>
     <string name="action_apropos">A propos</string>
     <string name="action_suivi">Suivi</string>
-    
+
     <!-- MainActivity -->
     <string name="txtTaille">Rentrez votre taille (en cm)</string>
     <string name="txtPoids">Rentrez votre poids (en kg)</string>
@@ -16,17 +16,17 @@
     <string name="rdgAdulte">Adulte</string>
     <string name="btnValider">Valider</string>
     <string name="clicValider">clicValider</string>
-    
+
     <!-- PlatActivity -->
     <string name="title_activity_plat">PlatActivity</string>
- 	<string name="boutonConseille">Conseiller</string>
+    <string name="boutonConseille">Conseiller</string>
     <string name="boutonValiderMenu">Valider</string>
-    <string name="clicConseiller">clicConseiller</string>  
+    <string name="clicConseiller">clicConseiller</string>
     <string name="txtIMC">Votre IMC : </string>
-    <string name="txtCalCons">Calories conseillées : </string> 
+    <string name="txtCalCons">Calories conseillées : </string>
 
     <!-- PropositionActivity -->
-	<string name="title_activity_proposition">PropositionActivity</string>
+    <string name="title_activity_proposition">PropositionActivity</string>
     <string name="txtProposition">Voici ce que nous vous conseillons</string>
     <string name="btnAccepter">Accepter</string>
     <string name="btnRefuser">Refuser</string>
@@ -41,8 +41,15 @@
     <string name="btnEnregistrer">Enregistrer</string>
     <string name="btnPhoto">Photo</string>
     <string name="clicEnregistrer">clicEnregistrer</string>
-    
+
     <!-- SuiviActivity -->
-	<string name="title_activity_suivi">SuiviActivity</string>
-		
+    <string name="title_activity_suivi">SuiviActivity</string>
+    <string name="title_activity_apropos">AproposActivity</string>
+    
+    <!--  AproposActivity -->
+    <string name="tv1apropos">Application créée par Valentin ARGENTY et Rayane BOURDIM</string>
+    <string name="tv2apropos">IUT Informatique Paul Sabatier - Module P222 - 2017</string>
+    <string name="tv3apropos">Cette application vous conseille pour choisir un repas équilibré</string>
+    <string name="action_accueil">Accueil</string>
+
 </resources>

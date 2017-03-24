@@ -114,7 +114,7 @@ public class PropositionActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
+		getMenuInflater().inflate(R.menu.proposition, menu);
 		return true;
 	}
 
@@ -125,11 +125,15 @@ public class PropositionActivity extends Activity {
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_apropos) {
-			return true;
+			Intent intent = new Intent(PropositionActivity.this, AproposActivity.class);
+        	startActivity(intent);
 		}else if (id == R.id.action_suivi){
         	Intent intent = new Intent(PropositionActivity.this, SuiviActivity.class);
         	startActivity(intent);
-        }
+        }else if (id == R.id.action_accueil) {
+			Intent intent = new Intent(PropositionActivity.this, MainActivity.class);
+			startActivity(intent);
+		}
 		return super.onOptionsItemSelected(item);
 	}
 	

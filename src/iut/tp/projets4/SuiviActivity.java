@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -52,7 +53,11 @@ public class SuiviActivity extends Activity {
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_apropos) {
-			return true;
+			Intent intent = new Intent(SuiviActivity.this, AproposActivity.class);
+        	startActivity(intent);
+		}else if (id == R.id.action_accueil) {
+			Intent intent = new Intent(SuiviActivity.this, MainActivity.class);
+			startActivity(intent);
 		}
 		return super.onOptionsItemSelected(item);
 	}

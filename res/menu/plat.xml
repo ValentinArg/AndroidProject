@@ -1,11 +1,16 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="iut.tp.projets4.SuiviActivity" >
-
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    
     <item
         android:id="@+id/action_accueil"
         android:showAsAction="ifRoom"
         android:title="@string/action_accueil"/>
+    
+    <item
+        android:id="@+id/action_suivi"
+        android:showAsAction="ifRoom"
+        android:title="@string/action_suivi"/>
+    
     <item
         android:id="@+id/action_apropos"
         android:orderInCategory="100"

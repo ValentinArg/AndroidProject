@@ -38,6 +38,10 @@
             android:name=".SuiviActivity"
             android:label="@string/title_activity_suivi" >
         </activity>
+        <activity
+            android:name=".AproposActivity"
+            android:label="@string/title_activity_apropos" >
+        </activity>
     </application>
 
 </manifest>
