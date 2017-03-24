@@ -86,7 +86,7 @@ public class PlatActivity extends Activity {
 		
 		//Affichage des complements de la bd dans le spinner	
 		complementstab = new ArrayList<String>();
-		complementstab.add("Aucun");
+		complementstab.add("Sans complément");
 		if(cursComplements.moveToFirst()){
 			do{
 				complementstab.add(cursComplements.getString(0));

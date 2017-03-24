@@ -64,13 +64,13 @@ public class RepasActivity extends Activity {
 	
 	public void clicEnregistrer (View v){
 		Calendar c = Calendar.getInstance();
-		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 		String formattedDate = df.format(c.getTime());
 		
 		PlatsDbHelper bdd = new PlatsDbHelper(this);
 		SQLiteDatabase db = bdd.getWritableDatabase();
 		
 		//récupérer les plats enregistrés, la somme des calories, la date système
-		db.execSQL("INSERT INTO Repas(plats, calories, date) VALUES('"+entree+" "+plat+" "+complement+" "+dessert+"', 666, '"+formattedDate+"');");
+		db.execSQL("INSERT INTO Repas(plats, calories, date) VALUES('"+entree+" - "+plat+" - "+complement+" - "+dessert+"', 666, '"+formattedDate+"');");
 	}
 }

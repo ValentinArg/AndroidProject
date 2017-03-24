@@ -10,13 +10,19 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class SuiviActivity extends Activity {
 	
-	List<String> repastab;
-	ArrayAdapter<String> adapter;
+	List<String> dateslist;
+	List<String> repaslist;
+	List<Integer> calorieslist;
+	AdapterSuivi adapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -27,16 +33,32 @@ public class SuiviActivity extends Activity {
 		SQLiteDatabase db = bdd.getReadableDatabase();
 		
 		Cursor c = db.rawQuery("SELECT * FROM Repas ORDER BY ID DESC", null);
-		repastab = new ArrayList<String>();
+		dateslist = new ArrayList<String>();
+		repaslist = new ArrayList<String>();
+		calorieslist = new ArrayList<Integer>();
 		if(c.moveToFirst()){
 			do{
-				repastab.add(c.getString(3)+" Votre repas: "+ c.getString(1)+" Calories : "+c.getInt(2));
+				dateslist.add(c.getString(3));
+				repaslist.add(c.getString(1));
+				calorieslist.add(c.getInt(2));
 			}while(c.moveToNext());
 		}
-		adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, repastab);
+		
+		String[] datestab = dateslist.toArray(new String[dateslist.size()]);
+		String[] repastab = repaslist.toArray(new String[repaslist.size()]);
+		adapter = new AdapterSuivi(this, datestab, repastab);
 		
 		ListView liste = (ListView) findViewById(R.id.ListView1);
 		liste.setAdapter(adapter);
+		
+		liste.setOnItemClickListener(new OnItemClickListener()
+		{
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position,
+					long roxid) 
+			{
+				Toast.makeText(SuiviActivity.this, "Calories : "+calorieslist.get(position), Toast.LENGTH_SHORT).show();
+			}});
 	}
 
 	@Override

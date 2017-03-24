@@ -28,13 +28,14 @@ public final class R {
         public static final int Entree=0x7f080010;
         public static final int ListView1=0x7f080026;
         public static final int RelativeLayout1=0x7f080003;
-        public static final int action_accueil=0x7f080027;
-        public static final int action_apropos=0x7f080029;
-        public static final int action_suivi=0x7f080028;
+        public static final int action_accueil=0x7f080029;
+        public static final int action_apropos=0x7f08002b;
+        public static final int action_suivi=0x7f08002a;
         public static final int boutonConseille=0x7f080014;
         public static final int boutonValiderPlat=0x7f080015;
         public static final int button1=0x7f08000e;
         public static final int button2=0x7f08001a;
+        public static final int dateLigne=0x7f080027;
         public static final int editText1=0x7f080004;
         public static final int editText2=0x7f080005;
         public static final int linearLayout1=0x7f080024;
@@ -47,6 +48,7 @@ public final class R {
         public static final int radio3=0x7f08000d;
         public static final int radioGroup1=0x7f080006;
         public static final int radioGroup2=0x7f08000b;
+        public static final int repasLigne=0x7f080028;
         public static final int scrollView1=0x7f08001f;
         public static final int spinner=0x7f080016;
         public static final int spinner1=0x7f080021;
@@ -75,6 +77,7 @@ public final class R {
         public static final int activity_proposition=0x7f030003;
         public static final int activity_repas=0x7f030004;
         public static final int activity_suivi=0x7f030005;
+        public static final int ligne_suivi=0x7f030006;
     }
     public static final class menu {
         public static final int apropos=0x7f070000;
