@@ -112,6 +112,9 @@ public final class R {
         public static final int rdgEnfant=0x7f050009;
         public static final int rdgFemme=0x7f050008;
         public static final int rdgHomme=0x7f050007;
+        /**   AproposActivity 
+  AproposActivity 
+         */
         public static final int title_activity_apropos=0x7f050021;
         /**  PlatActivity 
  PlatActivity 
@@ -130,9 +133,6 @@ public final class R {
          */
         public static final int title_activity_suivi=0x7f050020;
         public static final int toastEnregistre=0x7f050026;
-        /**   AproposActivity 
-  AproposActivity 
-         */
         public static final int tv1apropos=0x7f050022;
         public static final int tv2apropos=0x7f050023;
         public static final int tv3apropos=0x7f050024;
