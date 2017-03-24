@@ -18,7 +18,7 @@
     <string name="clicValider">clicValider</string>
 
     <!-- PlatActivity -->
-    <string name="title_activity_plat">PlatActivity</string>
+    <string name="title_activity_plat">Choix du repas</string>
     <string name="boutonConseille">Conseiller</string>
     <string name="boutonValiderMenu">Valider</string>
     <string name="clicConseiller">clicConseiller</string>
@@ -26,7 +26,7 @@
     <string name="txtCalCons">Calories conseillées : </string>
 
     <!-- PropositionActivity -->
-    <string name="title_activity_proposition">PropositionActivity</string>
+    <string name="title_activity_proposition">Notre proposition</string>
     <string name="txtProposition">Voici ce que nous vous conseillons</string>
     <string name="btnAccepter">Accepter</string>
     <string name="btnRefuser">Refuser</string>
@@ -36,20 +36,21 @@
     <string name="clicRefuser">clicRefuser</string>
 
     <!-- RepasActivity -->
-    <string name="title_activity_repas">RepasActivity</string>
+    <string name="title_activity_repas">Votre repas</string>
     <string name="txtRepas">Votre repas :</string>
     <string name="btnEnregistrer">Enregistrer</string>
     <string name="btnPhoto">Photo</string>
     <string name="clicEnregistrer">clicEnregistrer</string>
 
     <!-- SuiviActivity -->
-    <string name="title_activity_suivi">SuiviActivity</string>
-    <string name="title_activity_apropos">AproposActivity</string>
+    <string name="title_activity_suivi">Suivi</string>
     
     <!--  AproposActivity -->
+    <string name="title_activity_apropos">A propos</string>
     <string name="tv1apropos">Application créée par Valentin ARGENTY et Rayane BOURDIM</string>
     <string name="tv2apropos">IUT Informatique Paul Sabatier - Module P222 - 2017</string>
     <string name="tv3apropos">Cette application vous conseille pour choisir un repas équilibré</string>
     <string name="action_accueil">Accueil</string>
+    <string name="toastEnregistre">Repas enregistré !</string>
 
 </resources>

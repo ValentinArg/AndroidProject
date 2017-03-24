@@ -5,12 +5,14 @@ import java.util.Calendar;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class RepasActivity extends Activity {
 
@@ -70,7 +72,19 @@ public class RepasActivity extends Activity {
 		PlatsDbHelper bdd = new PlatsDbHelper(this);
 		SQLiteDatabase db = bdd.getWritableDatabase();
 		
+		//calcul de la somme des calories
+		Cursor cursKcalRepas = db.rawQuery("SELECT SUM(calories) FROM Plats WHERE nom='"+entree+"'"
+				+" OR nom='"+plat+"'"
+				+" OR nom='"+complement+"'"
+				+" OR nom='"+dessert+"';", null);
+		int sommeKcal = 0;
+		if(cursKcalRepas.moveToFirst()){
+			sommeKcal = cursKcalRepas.getInt(0);
+		}
+		
 		//récupérer les plats enregistrés, la somme des calories, la date système
-		db.execSQL("INSERT INTO Repas(plats, calories, date) VALUES('"+entree+" - "+plat+" - "+complement+" - "+dessert+"', 666, '"+formattedDate+"');");
+		db.execSQL("INSERT INTO Repas(plats, calories, date) VALUES('"+entree+" - "+plat+" - "+complement+" - "+dessert+"',"+sommeKcal+", '"+formattedDate+"');");
+		
+		Toast.makeText(this, R.string.toastEnregistre, Toast.LENGTH_SHORT).show();
 	}
 }

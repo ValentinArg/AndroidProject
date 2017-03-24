@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ProjetS4</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_apropos">About</string>
+    <string name="action_suivi">Monitoring</string>
+
+    <!-- MainActivity -->
+    <string name="txtTaille">Enter your size (cm)</string>
+    <string name="txtPoids">Enter your weight</string>
+    <string name="rdgHomme">Male</string>
+    <string name="rdgFemme">Female</string>
+    <string name="rdgEnfant">Child</string>
+    <string name="rdgAdulte">Adulte</string>
+    <string name="btnValider">Submit</string>
+    <string name="clicValider">clicValider</string>
+
+    <!-- PlatActivity -->
+    <string name="title_activity_plat">Choose your meal</string>
+    <string name="boutonConseille">Advise me</string>
+    <string name="boutonValiderMenu">Submit</string>
+    <string name="clicConseiller">clicConseiller</string>
+    <string name="txtIMC">Your BMI : </string>
+    <string name="txtCalCons">Calories required : </string>
+
+    <!-- PropositionActivity -->
+    <string name="title_activity_proposition">Our advice</string>
+    <string name="txtProposition">Here is our advice</string>
+    <string name="btnAccepter">Accept</string>
+    <string name="btnRefuser">Refuse</string>
+    <string name="bCal">Calories before</string>
+    <string name="aCal">Calories after</string>
+    <string name="clicAccepter">clicAccepter</string>
+    <string name="clicRefuser">clicRefuser</string>
+
+    <!-- RepasActivity -->
+    <string name="title_activity_repas">Your meal</string>
+    <string name="txtRepas">Your meal :</string>
+    <string name="btnEnregistrer">Save</string>
+    <string name="btnPhoto">Picture</string>
+    <string name="clicEnregistrer">clicEnregistrer</string>
+
+    <!-- SuiviActivity -->
+    <string name="title_activity_suivi">Your monitoring</string>
+    
+    <!--  AproposActivity -->
+    <string name="title_activity_apropos">About</string>
+    <string name="tv1apropos">App created Valentin ARGENTY and Rayane BOURDIM</string>
+    <string name="tv2apropos">IUT Informatique Paul Sabatier - Module P222 - 2017</string>
+    <string name="tv3apropos">This app helps you to choose a well-balanced meal</string>
+    <string name="action_accueil">Home</string>
+    <string name="toastEnregistre">Meal saved !</string>
+
+</resources>

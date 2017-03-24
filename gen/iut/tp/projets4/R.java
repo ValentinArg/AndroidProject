@@ -114,18 +114,24 @@ public final class R {
         public static final int rdgHomme=0x7f050007;
         public static final int title_activity_apropos=0x7f050021;
         /**  PlatActivity 
+ PlatActivity 
          */
         public static final int title_activity_plat=0x7f05000d;
         /**  PropositionActivity 
+ PropositionActivity 
          */
         public static final int title_activity_proposition=0x7f050013;
         /**  RepasActivity 
+ RepasActivity 
          */
         public static final int title_activity_repas=0x7f05001b;
         /**  SuiviActivity 
+ SuiviActivity 
          */
         public static final int title_activity_suivi=0x7f050020;
+        public static final int toastEnregistre=0x7f050026;
         /**   AproposActivity 
+  AproposActivity 
          */
         public static final int tv1apropos=0x7f050022;
         public static final int tv2apropos=0x7f050023;
@@ -136,6 +142,7 @@ public final class R {
         public static final int txtProposition=0x7f050014;
         public static final int txtRepas=0x7f05001c;
         /**  MainActivity 
+ MainActivity 
          */
         public static final int txtTaille=0x7f050005;
     }
